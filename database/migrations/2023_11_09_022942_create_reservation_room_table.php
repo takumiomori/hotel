@@ -15,10 +15,8 @@ class CreateReservationRoomTable extends Migration
     {
         Schema::create('reservation_room', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('reservation_id');
-            $table->foreign('reservation_id')->references('id');
-            $table->unsignedBigInteger('room_id');
-            $table->foreign('room_id')->references('id');
+            $table->unsignedInteger('reservation_id');
+            $table->unsignedInteger('room_id');
             $table->date('checkin_date');
             $table->integer('price');
             $table->timestamps();

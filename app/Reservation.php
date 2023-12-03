@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Reservation extends Model
@@ -16,12 +17,19 @@ class Reservation extends Model
         'checkout' => 'required'
     );
 
-    public function guest(){
+    public function guest()
+    {
         return $this->belongsTo('App\Guest');
     }
 
-    public function rooms(): BelongsToMany
+    public function room()
     {
-        return $this->belongsToMany(Room::class, 'reservation_details');
+        return $this->belongsToMany('App\Room', 'reservation_room', 'reservation_id', 'room_id')->withPivot('checkin_date', 'price');
+    }
+
+    public static function getRoomPrice($n)
+    {
+        $data = Reservation::with('room')->find($n);
+        return $data->room->pluck('price')->first();
     }
 }
