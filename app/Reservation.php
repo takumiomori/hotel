@@ -29,7 +29,7 @@ class Reservation extends Model
 
     public static function getRoomPrice($n)
     {
-        $data = Reservation::with('room')->find($n);
-        return $data->room->pluck('price')->first();
+        $data = Room::find($n);
+        return $data->price;
     }
 }
