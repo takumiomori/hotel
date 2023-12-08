@@ -47,14 +47,28 @@
         <option selected>ご希望の部屋番号をお選びください</option>
         <option value="1">101 鯨</option>
         <option value="2">102 鰹</option>
-        <option value="3">103 鱧</option>
-        <option value="4">104 鰻</option>
-        <option value="5">201 桜</option>
-        <option value="6">202 紅葉</option>
-        <option value="7">203 藤</option>
-        <option value="8">204 秋桜</option>
-        <option value="9">301 椿</option>
-        <option value="10">302 浜薊</option>
+        <option value="3">103 鮎</option>
+        <option value="4">104 靭</option>
+        <option value="5">105 鰯</option>
+        <option value="6">106 鱧</option>
+        <option value="7">107 鰻</option>
+        <option value="8">108 鯛</option>
+        <option value="9">109 鯖</option>
+        <option value="10">201 桜</option>
+        <option value="11">202 紅葉</option>
+        <option value="12">203 鬼灯</option>
+        <option value="13">204 花見月</option>
+        <option value="14">205 牡丹</option>
+        <option value="15">206 藤</option>
+        <option value="16">207 秋桜</option>
+        <option value="17">208 紫陽花</option>
+        <option value="18">209 楓</option>
+        <option value="19">301 椿</option>
+        <option value="20">302 楊梅</option>
+        <option value="21">303 山桜桃梅</option>
+        <option value="22">304 浜薊</option>
+        <option value="23">305 菫</option>
+        <option value="24">306 朝顔</option>
       </select>
     <br>
     <div class="content_sub_title margintop">チェックイン</div>
