@@ -32,4 +32,12 @@ class Reservation extends Model
         $data = Room::find($n);
         return $data->price;
     }
+
+    public static function getUseDays($n1, $n2){
+
+        $checkIn = new Carbon($n1);
+        $checkOut = new Carbon($n2);
+
+        return  $checkIn->diffInDays($checkOut);
+    }
 }

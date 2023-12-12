@@ -17,7 +17,7 @@ class CreateReservationRoomTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('reservation_id');
             $table->unsignedInteger('room_id');
-            $table->date('checkin_date');
+            $table->integer('day');
             $table->integer('price');
             $table->timestamps();
         });

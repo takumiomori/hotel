@@ -26,6 +26,12 @@ class Room extends Model
         return $this->belongsToMany('App\Reservation','reservation_room','room_id','reservation_id')->withPivot('checkin_date','price');
     }
 
+    public static function getCategoryName($n)
+    {
+        $data = RoomCategory::find($n);
+        return $data->name;
+    }
+
     //改修中
     public function scopeMatchCategory($query, $n)
     {

@@ -7,13 +7,22 @@
 <div class="alert alert-primary" role="alert">{{$msg}}</div>
 @endif
 
-        @if(isset($items))
-        <div class="content_sub_title">検索結果</div>
+@if(isset($items))
+<div class="card">
+    <h5 class="card-header">検索結果</h5>
+    <div class="card-body">
+            <h6 class="card-title">【検索条件】</h6>
+            <ul>
+                <li>部屋タイプ：{{$category_name}}</li>
+                <li>チェックイン：{{$checkin}}</li>
+                <li>チェックアウト：{{$checkout}}</li>
+            </ul>
+        
         <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">部屋番号</th>
-                <th scope="col">宿泊料（お1人様あたり）</th></tr>
+                <th scope="col">宿泊料金<small>（お1人様・1泊あたり）</small></th></tr>
         </thead>
         <tbody>
         @foreach($items as $item)
@@ -24,9 +33,11 @@
         @endforeach
         </tbody>
         </table>
-        @endif
+    </div>
+</div>
+@endif
 
-<div class="content_title">予約</div>
+<div class="content_title margintop">宿泊予約</div>
 @if(count($errors)>0)
 <div>
     <ul>
@@ -45,6 +56,11 @@
     <div class="content_sub_title">ご希望の部屋番号を指定</div>
     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="room_id">
         <option selected>ご希望の部屋番号をお選びください</option>
+        @if(isset($items))
+        @foreach($items as $item)
+        <option value="{{$item->id}}">{{$item->number}} {{$item->name}}</option>
+        @endforeach
+        @else
         <option value="1">101 鯨</option>
         <option value="2">102 鰹</option>
         <option value="3">103 鮎</option>
@@ -69,12 +85,20 @@
         <option value="22">304 浜薊</option>
         <option value="23">305 菫</option>
         <option value="24">306 朝顔</option>
+        @endif
       </select>
     <br>
+    @if(isset($checkin))
+    <div class="content_sub_title margintop">チェックイン</div>
+    <input class="form-control form-control-lg" type="date" placeholder="チェックイン" name="checkin" value="{{$checkin}}"><br>
+    <div class="content_sub_title">チェックアウト</div>
+    <input class="form-control form-control-lg" type="date" placeholder="チェックアウト" name="checkout" value="{{$checkout}}"><br>
+    @else
     <div class="content_sub_title margintop">チェックイン</div>
     <input class="form-control form-control-lg" type="date" placeholder="チェックイン" name="checkin" value="{{old('checkin')}}"><br>
     <div class="content_sub_title">チェックアウト</div>
     <input class="form-control form-control-lg" type="date" placeholder="チェックアウト" name="checkout" value="{{old('checkout')}}"><br>
+    @endif
     <input class="submit_btn" type="submit" value="予約">
 </form>
 </div>
